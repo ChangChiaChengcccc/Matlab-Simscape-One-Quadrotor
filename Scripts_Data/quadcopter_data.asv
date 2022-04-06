@@ -1,0 +1,16 @@
+classdef quadcopter_data
+    properties
+        m = 0.93714 %kg
+        J = [3.29025*1e-3 0 0;
+             0 3.29025*1e-3 0;
+             0 0 5.815*1e-3];
+        R_BI
+        f1
+        f2
+        f3
+        f4
+        f
+        acc
+        e3 = [0; 0; 1];
+    end
+end
