@@ -1,9 +1,7 @@
-aaa = [ 
-        1 6;
-        2 7;
-        3 8;
-        4 9;
-        5 10];
+i=0;
+i=addd(i)
 
-bbb =  transpose(aaa)
-    
+function y=addd(x)
+    persistent x;
+    y = x+1;
+end

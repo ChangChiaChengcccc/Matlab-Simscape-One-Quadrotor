@@ -36,7 +36,7 @@ for i = 1:length(q.t_vec)
 end
 
 %ukf
- q.states = ukf_state_estimation(q);
+ [q.states,dt_vec] = ukf_state_estimation(q);
 
 %plot
 %plotq(q)
