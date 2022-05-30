@@ -38,7 +38,7 @@ function xV = ukf_state_estimation(q)
     Q=diag(q_std)*diag(q_std);       % covariance of process
     R=diag(r)*diag(r);       % covariance of measurement  
 
-    f=@(x,q,i,dt) [                       % x
+    f=@(x,q,i,dt) [                         % x
                                             x(1)+x(4)*dt+0.5*x(7)*dt^2;
                                             x(2)+x(5)*dt+0.5*x(8)*dt^2;
                                             x(3)+x(6)*dt+0.5*x(9)*dt^2;   
