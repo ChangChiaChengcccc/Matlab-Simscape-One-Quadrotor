@@ -19,8 +19,8 @@ switch (path_number)
             -2    -2 0 2 5
             -2    -2 0 0 0
             0.15   6 6 6 1];
-        max_speed = 1;
-        min_speed = 0.1;
+        max_speed = 0.4;
+        min_speed = 0.2;
         xApproach = [4 0.5];
         vApproach = 0.1;
 
@@ -52,6 +52,16 @@ switch (path_number)
             -5.0000   -4.4724   -4.5758   -2.3910    1.5272    5.3013    6.5986    6.8774    9.5797    8.0000
             0.1500    6.0000    6.0000    6.0000    6.0000    6.0000    6.0000    6.0000    6.0000    1];
         max_speed = 1;
+        min_speed = 0.1;
+        xApproach = [4 0.5];
+        vApproach = 0.1;
+
+    case 5
+        waypoints = [ ...
+            -2    -2  0 2 4 6    
+            -2    -2  0 2 4 6 
+            0.15   6  6 6 6 6 ];
+        max_speed = 0.3;
         min_speed = 0.1;
         xApproach = [4 0.5];
         vApproach = 0.1;

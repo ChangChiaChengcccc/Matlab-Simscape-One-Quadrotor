@@ -32,5 +32,7 @@ classdef quadcopter_data
         steps
         t_vec
         states
+        ex_enu
+        eR
     end
 end

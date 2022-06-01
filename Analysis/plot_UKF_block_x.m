@@ -27,6 +27,13 @@ quadrotor.W_meas = transpose(sim_W_meas.signals.values);
 quadrotor.dW_meas = transpose(sim_dW_meas.signals.values); 
 quadrotor.steps = linspace(1,length(quadrotor.f1),length(quadrotor.f1));
 quadrotor.t_vec = sim_f1.time;
+quadrotor.ex_enu = zeros(3,length(t_vec));
+quadrotor.eR = zeros(3,length(t_vec));
+for i=1:length(t_vec)
+    ex_ned =  sim_ex_ned.signals.values(:,1,i);
+    quadrotor.ex_enu(:,i) = [ex_ned(2);ex_ned(1);-ex_ned(3)];
+    quadrotor.eR(:,i)= sim_eR.signals.values(:,1,i);
+end
 
 true_state_vec = [ quadrotor.pos_meas; quadrotor.vel_meas; ...
                    quadrotor.acc_meas; quadrotor.W_meas; quadrotor.dW_meas ];
@@ -173,4 +180,52 @@ x = xlabel('$t$', 'rotation', 0, 'Interpreter', 'latex','FontSize',20);
 y = ylabel('$Efficiency$', 'rotation', 0, 'Interpreter', 'latex','FontSize',20);
 set(y, 'Units', 'Normalized', 'Position', [-0.09, 0.41]);
 legend('$e1\ estimation$','$e2\ estimation$','$e3\ estimation$','$e4\ estimation$', 'Interpreter', 'latex','FontSize',15)
+grid on
+
+% ex_enu
+figure(8)
+subplot(3,1,1)
+plot(t_vec, quadrotor.ex_enu(1,:),'b');
+title('2-D error_x Plot','FontSize',20);
+x = xlabel('$t$', 'rotation', 0, 'Interpreter', 'latex','FontSize',20);
+y = ylabel('$x(m)$', 'rotation', 0, 'Interpreter', 'latex','FontSize',20);
+set(y, 'Units', 'Normalized', 'Position', [-0.09, 0.41]);
+legend('$error_x$', 'Interpreter', 'latex','FontSize',20)
+grid on
+subplot(3,1,2)
+plot(t_vec, quadrotor.ex_enu(2,:),'b');
+title('2-D error_y Plot','FontSize',20);
+x = xlabel('$t$', 'rotation', 0, 'Interpreter', 'latex','FontSize',20);
+y = ylabel('$y(m)$', 'rotation', 0, 'Interpreter', 'latex','FontSize',20);
+set(y, 'Units', 'Normalized', 'Position', [-0.09, 0.41]);
+legend('$error_y$', 'Interpreter', 'latex','FontSize',20)
+grid on
+subplot(3,1,3)
+plot(t_vec, quadrotor.ex_enu(3,:),'b');
+title('2-D error_z Plot','FontSize',20);
+x = xlabel('$t$', 'rotation', 0, 'Interpreter', 'latex','FontSize',20);
+y = ylabel('$z(m)$', 'rotation', 0, 'Interpreter', 'latex','FontSize',20);
+set(y, 'Units', 'Normalized', 'Position', [-0.09, 0.41]);
+legend('$error_z$', 'Interpreter', 'latex','FontSize',20)
+grid on
+
+% eR
+figure(9)
+subplot(3,1,1)
+plot(t_vec, quadrotor.eR(1,:),'b');
+title('2-D error_R(1) Plot','FontSize',20);
+x = xlabel('$t$', 'rotation', 0, 'Interpreter', 'latex','FontSize',20);
+legend('$error_R(1)$', 'Interpreter', 'latex','FontSize',20)
+grid on
+subplot(3,1,2)
+plot(t_vec, quadrotor.eR(2,:),'b');
+title('2-D error_R(2) Plot','FontSize',20);
+x = xlabel('$t$', 'rotation', 0, 'Interpreter', 'latex','FontSize',20);
+legend('$error_R(2)$', 'Interpreter', 'latex','FontSize',20)
+grid on
+subplot(3,1,3)
+plot(t_vec, quadrotor.eR(3,:),'b');
+title('2-D error_R(3) Plot','FontSize',20);
+x = xlabel('$t$', 'rotation', 0, 'Interpreter', 'latex','FontSize',20);
+legend('$error_R(3)$', 'Interpreter', 'latex','FontSize',20)
 grid on
