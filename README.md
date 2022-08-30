@@ -7,7 +7,9 @@ the dynamics of the power conversion in an abstract manner to enable fast simula
 The package is released from the quadcopter when it reaches the final waypoint and 
 the release criteria are met.
 
-Open the project file Quadcopter_Drone.prj to get started.
+1. Run the file Analysis/set_efficiency.m.
+2. Double click the project file: Quadcopter_Drone.prj to read parameters and open simulink.
+3. Run the simulink.
 
 To learn more about modeling and simulation with Simscape, please visit:
 * [Simscape Getting Started Resources](https://www.mathworks.com/solutions/physical-modeling/resources.html)
