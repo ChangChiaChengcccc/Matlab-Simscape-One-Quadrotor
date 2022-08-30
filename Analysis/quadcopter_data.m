@@ -33,6 +33,9 @@ classdef quadcopter_data
         t_vec
         states
         ex_enu
+        ev_enu
         eR
+        eW
+        traj
     end
 end
