@@ -4,7 +4,7 @@ function [xV,dt_vec]= ukf_state_estimation(q)
     t_vec = q.t_vec;
     % initial state
     initial_state = [
-                       q.pos_meas(:,1);q.vel_meas(:,1);q.acc_meas(:,1); q.W_meas(:,1); q.dW_meas(:,1); 0; 0; 0; 0
+                       q.pos_meas(:,1);q.vel_meas(:,1);q.acc_meas(:,1); q.W_meas(:,1); q.dW_meas(:,1); 1; 1; 1; 1
                     ];
 
     true_state_vec = [
